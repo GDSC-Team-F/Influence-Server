@@ -38,7 +38,9 @@ public record SignUpRequest(
 
         Integer address,
 
-        List<Integer> conditions
+        List<Integer> conditions,
+
+        Integer image
 ) {
     public User toUser() {
         return User.registerUser(
@@ -48,7 +50,8 @@ public record SignUpRequest(
                 gender,
                 age,
                 address,
-                conditions
+                conditions,
+                image
         );
     }
 }

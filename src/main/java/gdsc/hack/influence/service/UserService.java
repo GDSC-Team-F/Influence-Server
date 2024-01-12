@@ -36,7 +36,7 @@ public class UserService {
         Email userEmail = Email.builder()
                 .value(email)
                 .build();
-        User user = userFindService.findByMemEmail(userEmail);
+        User user = userFindService.findByEmail(userEmail);
         comparePassword(password, user.getPassword());
 
         String accessToken = jwtTokenProvider.generateAccessToken(user.getUserIdx());

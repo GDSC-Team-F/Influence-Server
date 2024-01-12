@@ -25,22 +25,18 @@ public class Friend {
     @JoinColumn(name = "responder_id")
     private User responder;
 
-    @Column(name = "randcode", length = 255)
-    private String randCode;
-
     @Column(name = "status", length = 255)
     private String status;
 
     @Builder
-    public Friend(User requester, User responder, String randCode) {
+    public Friend(User requester, User responder) {
         this.requester = requester;
         this.responder = responder;
-        this.randCode = randCode;
         this.status = "TRUE";
     }
 
-    public static Friend create(User requester, User responder, String randCode) {
-        return new Friend(requester, responder, randCode);
+    public static Friend create(User requester, User responder) {
+        return new Friend(requester, responder);
     }
 }
 

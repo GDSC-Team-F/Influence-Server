@@ -34,10 +34,13 @@ public class User extends BaseTimeEntity {
     @Convert(converter = IntegerArrayConverter.class)
     private List<Integer> conditions;
 
+    private Integer image;
+
     private Role role;
 
     @Builder
-    private User(Email email, Password password, String nickname, Gender gender, Integer age, Integer address, List<Integer> conditions) {
+    private User(Email email, Password password, String nickname, Gender gender, Integer age, Integer address,
+                 List<Integer> conditions, Integer image) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
@@ -45,14 +48,14 @@ public class User extends BaseTimeEntity {
         this.age = age;
         this.address = address;
         this.conditions = conditions;
-//        this.character = character;
+        this.image = image;
         this.role = Role.USER;
     }
 
     public static User registerUser(
             Email email, Password password,
             String nickname, Gender gender, Integer age, Integer address,
-            List<Integer> conditions) {
-        return new User(email, password, nickname, gender, age, address, conditions);
+            List<Integer> conditions, Integer image) {
+        return new User(email, password, nickname, gender, age, address, conditions, image);
     }
 }
