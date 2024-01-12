@@ -17,7 +17,7 @@ public class Disease {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private Long disease_index;
+    private Long diseaseIdx;
 
     @NotBlank
     @Column(name = "disease_name")

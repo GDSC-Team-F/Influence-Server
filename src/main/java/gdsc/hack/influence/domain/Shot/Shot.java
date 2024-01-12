@@ -18,7 +18,7 @@ public class Shot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long shotIdx;
 
     @ManyToOne
     @JoinColumn(name = "user_index")

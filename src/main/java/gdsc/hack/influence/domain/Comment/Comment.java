@@ -20,7 +20,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_index")
-    private Long commentIndex;
+    private Long commentIdx;
 
     @Column(name = "disease_name")
     private String diseaseName;

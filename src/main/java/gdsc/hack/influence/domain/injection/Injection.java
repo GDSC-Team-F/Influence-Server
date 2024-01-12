@@ -17,7 +17,7 @@ public class Injection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "injection_index")
-    private Long injectionIndex;
+    private Long injectionIdx;
 
     @Column(name = "injection_name")
     private String injectionName;
