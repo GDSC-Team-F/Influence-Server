@@ -6,11 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-@Entity
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 @Table(name = "user")
 public class User extends BaseTimeEntity {
     @Id
@@ -25,15 +23,28 @@ public class User extends BaseTimeEntity {
 
     private String nickname;
 
-    @NotBlank
-    @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @NotBlank
     private Integer age;
 
     @NotBlank
     private String address;
 
     private Role role;
+
+    @Builder
+    private User(Email email, Password password, String nickname, Gender gender, Integer age, String address) {
+        this.email = email;
+        this.password = password;
+        this.nickname = nickname;
+        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.role = Role.USER;
+    }
+
+    public static User registerUser(
+            Email email, Password password, String nickname, Gender gender, Integer age, String address) {
+        return new User(email, password, nickname, gender, age, address);
+    }
 }

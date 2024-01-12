@@ -32,6 +32,8 @@ public class SecurityConfig {
 
     private static final String[] PERMIT_URL = {
             /* member auth service */
+            "/user/sign-up",
+            "/user/login",
 
             /* swagger */
             "/v3/api-docs/**",
