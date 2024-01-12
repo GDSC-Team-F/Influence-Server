@@ -16,12 +16,12 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/api")
 public class UserController {
     private final UserService userService;
 
     @Operation(summary = "회원가입", description = "사용자가 회원가입을 진행합니다.")
-    @PostMapping("/sign-up")
+    @PostMapping("/register")
     public BaseResponse<Long> signUp(@RequestBody @Valid SignUpRequest request) {
         return new BaseResponse<>(userService.signUp(request.toUser()));
     }

@@ -31,9 +31,9 @@ public class SecurityConfig {
     private final JwtRequestFilter jwtRequestFilter;
 
     private static final String[] PERMIT_URL = {
-            /* member auth service */
-            "/user/sign-up",
-            "/user/login",
+            /* auth service */
+            "/api/register",
+            "/api/login",
 
             /* swagger */
             "/v3/api-docs/**",

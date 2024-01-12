@@ -48,7 +48,8 @@ public class UserService {
                 user.getNickname(),
                 user.getEmail().getValue(),
                 accessToken,
-                refreshToken
+                refreshToken,
+                user.getConditions()
         );
     }
 

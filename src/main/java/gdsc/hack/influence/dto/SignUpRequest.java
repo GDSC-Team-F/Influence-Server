@@ -10,6 +10,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import java.util.List;
+
 import static gdsc.hack.influence.domain.user.Password.ENCODER;
 
 public record SignUpRequest(
@@ -23,27 +25,30 @@ public record SignUpRequest(
         @Schema(description = "비밀번호", example = "pass1234!")
         String password,
 
-        @Size(min = 2, max = 10, message = "닉네임은 2글자 이상이어야 합니다.")
-        @NotBlank(message = "닉네임은 필수입니다.")
-        @Schema(description = "닉네임", example = "길동이")
-        String nickname,
+        @Size(min = 2, max = 10, message = "이름은 2글자 이상이어야 합니다.")
+        @NotBlank(message = "이름은 필수입니다.")
+        @Schema(description = "이름", example = "길동이")
+        String name,
 
         @ValidEnum(enumClass = Gender.class)
-        @Schema(description = "성별", example = "MALE or FEMALE")
+        @Schema(description = "성별", example = "0(MALE) or 1(FEMALE)")
         Gender gender,
 
         Integer age,
 
-        String address
+        Integer address,
+
+        List<Integer> conditions
 ) {
     public User toUser() {
         return User.registerUser(
                 Email.from(email),
                 Password.encrypt(password, ENCODER),
-                nickname,
+                name,
                 gender,
                 age,
-                address
+                address,
+                conditions
         );
     }
 }
