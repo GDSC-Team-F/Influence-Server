@@ -1,5 +1,6 @@
 package gdsc.hack.influence.domain.injection;
 
+import gdsc.hack.influence.domain.Disease.Disease;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class Injection {
     private String injectionCycle;
 
     @ManyToOne
-    @JoinColumn(name = "desease_idx")
-    private Injection injection;
+    @JoinColumn(name = "disease_idx")
+    private Disease disease;
 }
 
