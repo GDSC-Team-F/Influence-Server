@@ -2,7 +2,6 @@ package gdsc.hack.influence.controller;
 
 import gdsc.hack.influence.common.BaseResponse;
 import gdsc.hack.influence.common.annotation.ExtractPayload;
-import gdsc.hack.influence.domain.Request.Friend;
 import gdsc.hack.influence.dto.FriendListResponse;
 import gdsc.hack.influence.service.FriendService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/friends")
+@RequestMapping("/api/friends")
 public class FriendController {
     private final FriendService friendService;
 
@@ -31,5 +30,4 @@ public class FriendController {
     public BaseResponse<List<FriendListResponse>> get(@ExtractPayload Long userId) {
         return new BaseResponse<>(friendService.get(userId));
     }
-
 }

@@ -5,6 +5,8 @@ import gdsc.hack.influence.domain.user.Email;
 import gdsc.hack.influence.domain.user.User;
 import gdsc.hack.influence.dto.FriendListResponse;
 import gdsc.hack.influence.repository.FriendRepository;
+import gdsc.hack.influence.repository.InjectionRepository;
+import gdsc.hack.influence.repository.ShotRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,8 @@ import java.util.List;
 public class FriendService {
     private final FriendRepository friendRepository;
     private final UserFindService userFindService;
+    private final ShotRepository shotRepository;
+    private final InjectionRepository injectionRepository;
 
     @Transactional
     public Long invite(Long userId, String email) {
@@ -48,10 +52,15 @@ public class FriendService {
 
         for (int i = 0; i < size; i++) {
             Friend friend = friendList.get(i);
+            Long shotCnt = shotRepository.countByUser(friend.getResponder());
+            Long injectionCnt = injectionRepository.countBy();
+            float userPercent = (shotCnt / injectionCnt) * 100.0f;
+
             friendLists.add(new FriendListResponse(
                     friend.getResponder().getUserIdx(),
                     friend.getResponder().getNickname(),
-                    friend.getResponder().getImage()
+                    friend.getResponder().getImage(),
+                    userPercent
             ));
         }
 

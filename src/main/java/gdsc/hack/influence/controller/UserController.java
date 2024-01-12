@@ -1,16 +1,15 @@
 package gdsc.hack.influence.controller;
 
 import gdsc.hack.influence.common.BaseResponse;
+import gdsc.hack.influence.common.annotation.ExtractPayload;
 import gdsc.hack.influence.dto.LoginRequest;
 import gdsc.hack.influence.dto.LoginResponse;
+import gdsc.hack.influence.dto.MyPageResponse;
 import gdsc.hack.influence.dto.SignUpRequest;
 import gdsc.hack.influence.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -30,5 +29,11 @@ public class UserController {
     @PostMapping("/login")
     public BaseResponse<LoginResponse> login(@RequestBody @Valid LoginRequest request) {
         return new BaseResponse<>(userService.login(request.email(), request.password()));
+    }
+
+    @Operation(summary = "마이페이지", description = "마이페이지")
+    @GetMapping("/me")
+    public BaseResponse<MyPageResponse> login(@ExtractPayload Long userId) {
+        return new BaseResponse<>(userService.getInfo(userId));
     }
 }

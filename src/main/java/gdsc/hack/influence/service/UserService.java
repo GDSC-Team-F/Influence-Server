@@ -8,6 +8,9 @@ import gdsc.hack.influence.domain.user.Email;
 import gdsc.hack.influence.domain.user.Password;
 import gdsc.hack.influence.domain.user.User;
 import gdsc.hack.influence.dto.LoginResponse;
+import gdsc.hack.influence.dto.MyPageResponse;
+import gdsc.hack.influence.repository.InjectionRepository;
+import gdsc.hack.influence.repository.ShotRepository;
 import gdsc.hack.influence.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,8 @@ public class UserService {
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
     private final TokenPersistenceAdapter tokenPersistenceAdapter;
+    private final ShotRepository shotRepository;
+    private final InjectionRepository injectionRepository;
 
     @Transactional
     public Long signUp(User user) {
@@ -50,6 +55,26 @@ public class UserService {
                 accessToken,
                 refreshToken,
                 user.getConditions()
+        );
+    }
+
+    @Transactional
+    public MyPageResponse getInfo(Long userId) {
+        User user = userFindService.findByMemId(userId);
+        Long shotCnt = shotRepository.countByUser(user);
+        Long injectionCnt = injectionRepository.countBy();
+        float myPercent = (shotCnt / injectionCnt) * 100.0f;
+
+        return new MyPageResponse(
+                user.getUserIdx(),
+                user.getNickname(),
+                user.getEmail().getValue(),
+                user.getConditions(),
+                user.getAddress(),
+                user.getGender(),
+                user.getAge(),
+                user.getImage(),
+                myPercent
         );
     }
 
