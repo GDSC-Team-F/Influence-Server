@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    include: oauth
+
+  config:
+    import:
+      - classpath:secret.yml
+
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true
+        default_batch_fetch_size: 50
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  access-token-expiration-time: 2592000
+  refresh-token-expiration-time: 2592000
