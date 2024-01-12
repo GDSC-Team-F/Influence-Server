@@ -1,10 +1,10 @@
-package gdsc.hack.influence.jwt.service;
+package gdsc.hack.influence.auth.jwt.service;
 
 import gdsc.hack.influence.common.exception.BaseException;
 import gdsc.hack.influence.common.exception.GlobalErrorCode;
-import gdsc.hack.influence.jwt.dto.TokenResponse;
-import gdsc.hack.influence.jwt.persistence.TokenPersistenceAdapter;
-import gdsc.hack.influence.jwt.util.JwtTokenProvider;
+import gdsc.hack.influence.auth.jwt.dto.TokenResponse;
+import gdsc.hack.influence.auth.jwt.persistence.TokenPersistenceAdapter;
+import gdsc.hack.influence.auth.jwt.util.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

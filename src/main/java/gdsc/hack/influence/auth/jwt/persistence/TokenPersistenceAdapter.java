@@ -1,4 +1,4 @@
-package gdsc.hack.influence.jwt.persistence;
+package gdsc.hack.influence.auth.jwt.persistence;
 
 public interface TokenPersistenceAdapter {
     void synchronizeRefreshToken(Long memId, String refreshToken);

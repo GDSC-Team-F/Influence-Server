@@ -1,4 +1,4 @@
-package gdsc.hack.influence.security.handler;
+package gdsc.hack.influence.auth.security.handler;
 
 import gdsc.hack.influence.common.exception.BaseException;
 import gdsc.hack.influence.common.exception.GlobalErrorCode;

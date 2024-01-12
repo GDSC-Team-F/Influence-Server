@@ -1,8 +1,8 @@
 package gdsc.hack.influence.config;
 
-import gdsc.hack.influence.security.handler.JwtAccessDeniedHandler;
-import gdsc.hack.influence.security.handler.JwtAuthenticationEntryPoint;
-import gdsc.hack.influence.security.util.JwtRequestFilter;
+import gdsc.hack.influence.auth.security.handler.JwtAccessDeniedHandler;
+import gdsc.hack.influence.auth.security.handler.JwtAuthenticationEntryPoint;
+import gdsc.hack.influence.auth.security.util.JwtRequestFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

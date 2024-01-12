@@ -1,12 +1,12 @@
-package gdsc.hack.influence.security.util;
+package gdsc.hack.influence.auth.security.util;
 
+import gdsc.hack.influence.auth.security.domain.CustomUserDetails;
+import gdsc.hack.influence.auth.security.dto.UserDetailsDto;
 import gdsc.hack.influence.common.exception.BaseException;
 import gdsc.hack.influence.common.exception.GlobalErrorCode;
 import gdsc.hack.influence.common.exception.error.UserErrorCode;
 import gdsc.hack.influence.domain.user.User;
-import gdsc.hack.influence.jwt.util.JwtTokenProvider;
-import gdsc.hack.influence.security.domain.CustomUserDetails;
-import gdsc.hack.influence.security.dto.UserDetailsDto;
+import gdsc.hack.influence.auth.jwt.util.JwtTokenProvider;
 import gdsc.hack.influence.service.UserFindService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

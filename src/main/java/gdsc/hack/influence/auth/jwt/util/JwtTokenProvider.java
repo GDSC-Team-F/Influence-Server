@@ -1,4 +1,4 @@
-package gdsc.hack.influence.jwt.util;
+package gdsc.hack.influence.auth.jwt.util;
 
 import gdsc.hack.influence.common.exception.BaseException;
 import gdsc.hack.influence.common.exception.GlobalErrorCode;

@@ -1,4 +1,4 @@
-package gdsc.hack.influence.jwt.dto;
+package gdsc.hack.influence.auth.jwt.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

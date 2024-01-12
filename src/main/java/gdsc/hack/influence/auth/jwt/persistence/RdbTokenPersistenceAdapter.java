@@ -1,7 +1,7 @@
-package gdsc.hack.influence.jwt.persistence;
+package gdsc.hack.influence.auth.jwt.persistence;
 
-import gdsc.hack.influence.jwt.domain.Token;
-import gdsc.hack.influence.jwt.repository.TokenRepository;
+import gdsc.hack.influence.auth.jwt.domain.Token;
+import gdsc.hack.influence.auth.jwt.repository.TokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;

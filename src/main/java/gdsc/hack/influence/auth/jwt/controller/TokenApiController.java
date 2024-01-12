@@ -1,10 +1,10 @@
-package gdsc.hack.influence.jwt.controller;
+package gdsc.hack.influence.auth.jwt.controller;
 
+import gdsc.hack.influence.auth.jwt.service.TokenReissueService;
 import gdsc.hack.influence.common.BaseResponse;
 import gdsc.hack.influence.common.annotation.ExtractPayload;
 import gdsc.hack.influence.common.annotation.ExtractToken;
-import gdsc.hack.influence.jwt.dto.TokenResponse;
-import gdsc.hack.influence.jwt.service.TokenReissueService;
+import gdsc.hack.influence.auth.jwt.dto.TokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

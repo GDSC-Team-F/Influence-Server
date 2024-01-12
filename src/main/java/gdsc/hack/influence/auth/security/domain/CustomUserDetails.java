@@ -1,6 +1,6 @@
-package gdsc.hack.influence.security.domain;
+package gdsc.hack.influence.auth.security.domain;
 
-import gdsc.hack.influence.security.dto.UserDetailsDto;
+import gdsc.hack.influence.auth.security.dto.UserDetailsDto;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

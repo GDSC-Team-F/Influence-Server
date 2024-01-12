@@ -1,4 +1,4 @@
-package gdsc.hack.influence.jwt.util;
+package gdsc.hack.influence.auth.jwt.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

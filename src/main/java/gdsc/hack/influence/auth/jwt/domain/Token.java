@@ -1,4 +1,4 @@
-package gdsc.hack.influence.jwt.domain;
+package gdsc.hack.influence.auth.jwt.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;

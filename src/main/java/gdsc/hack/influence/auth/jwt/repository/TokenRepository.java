@@ -1,6 +1,6 @@
-package gdsc.hack.influence.jwt.repository;
+package gdsc.hack.influence.auth.jwt.repository;
 
-import gdsc.hack.influence.jwt.domain.Token;
+import gdsc.hack.influence.auth.jwt.domain.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

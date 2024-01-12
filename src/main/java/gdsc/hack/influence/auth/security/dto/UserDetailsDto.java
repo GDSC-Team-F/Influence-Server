@@ -1,4 +1,4 @@
-package gdsc.hack.influence.security.dto;
+package gdsc.hack.influence.auth.security.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import gdsc.hack.influence.domain.user.User;
