@@ -30,9 +30,10 @@ public class PointController {
         return new BaseResponse<>(pointService.checkPoint(userId));
     }
 
-//    @Operation(summary = "찌르기 확인", description = "찌르기 확인")
-//    @DeleteMapping("")
-//    public BaseResponse<List<PointResponse>> checkPoint(@ExtractPayload Long userId) {
-//        return new BaseResponse<>(pointService.checkPoint(userId));
-//    }
+    @Operation(summary = "찌르기 확인", description = "찌르기 확인")
+    @DeleteMapping("")
+    public BaseResponse<Long> delete(@ExtractPayload Long userId,
+                                     @RequestParam Long id) {
+        return new BaseResponse<>(pointService.delete(userId, id));
+    }
 }

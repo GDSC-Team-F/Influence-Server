@@ -52,4 +52,12 @@ public class PointService {
 
         return pointLists;
     }
+
+    @Transactional
+    public Long delete(Long userId, Long id) {
+        System.out.println(pointRepository.findById(id).get().getPointed().getUserIdx().equals(userId));
+        pointRepository.deleteById(id);
+
+        return id;
+    }
 }

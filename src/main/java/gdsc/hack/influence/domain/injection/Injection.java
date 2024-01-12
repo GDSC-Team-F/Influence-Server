@@ -16,7 +16,7 @@ public class Injection {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "injection_index")
+    @Column(name = "injection_idx")
     private Long injectionIdx;
 
     @Column(name = "injection_name")
@@ -29,7 +29,7 @@ public class Injection {
     private String injectionCycle;
 
     @ManyToOne
-    @JoinColumn(name = "desease_index")
+    @JoinColumn(name = "desease_idx")
     private Injection injection;
 }
 
