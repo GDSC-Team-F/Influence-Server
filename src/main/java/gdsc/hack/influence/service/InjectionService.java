@@ -1,6 +1,7 @@
 package gdsc.hack.influence.service;
 
 import gdsc.hack.influence.domain.Request.Friend;
+import gdsc.hack.influence.domain.Shot.Shot;
 import gdsc.hack.influence.domain.injection.Injection;
 import gdsc.hack.influence.domain.user.User;
 import gdsc.hack.influence.dto.InjectionResponse;
@@ -24,6 +25,16 @@ public class InjectionService {
     private final UserRepository userRepository;
     private final FriendRepository friendRepository;
     private final ShotRepository shotRepository;
+    private final UserFindService userFindService;
+
+    public Long vaccinated(Long userId, Long vaccineId) {
+        User user = userFindService.findByMemId(userId);
+        Injection injection = injectionRepository.findById(vaccineId).get();
+        Shot shot = Shot.create(user, injection);
+
+        Shot savedShot = shotRepository.save(shot);
+        return savedShot.getShotIdx();
+    }
 
     public InjectionResponse findById(Long userId, Long id) {
         User user = userRepository.findById(userId).get();
@@ -60,7 +71,7 @@ public class InjectionService {
         }
 
         return InjectionResponse.of(injection, isInjected,
-                friendsInjected.toString(), friendsNotInjected.toString());
+                friendsInjected, friendsNotInjected);
     }
 
     private List<User> findFriends(User user) {

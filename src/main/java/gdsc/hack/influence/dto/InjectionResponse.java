@@ -5,6 +5,8 @@ import gdsc.hack.influence.domain.injection.Injection;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 
+import java.util.List;
+
 @Builder
 public record InjectionResponse (
         Long injectionIdx,
@@ -13,11 +15,11 @@ public record InjectionResponse (
         String injectionCycle,
         Disease disease,
         boolean isInjected,
-        String friendsInjected,
-        String friendsNotInjected
+        List<Long> friendsInjected,
+        List<Long> friendsNotInjected
 ) {
 
-    public static InjectionResponse of(Injection injection, boolean isInjected, String friendsInjected, String friendsNotInjected) {
+    public static InjectionResponse of(Injection injection, boolean isInjected, List<Long> friendsInjected, List<Long> friendsNotInjected) {
         return InjectionResponse.builder()
                 .injectionIdx(injection.getInjectionIdx())
                 .injectionName(injection.getInjectionName())

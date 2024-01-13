@@ -1,11 +1,10 @@
 package gdsc.hack.influence.domain.Shot;
 
 import gdsc.hack.influence.domain.injection.Injection;
+import gdsc.hack.influence.domain.point.Point;
 import gdsc.hack.influence.domain.user.User;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,4 +27,13 @@ public class Shot {
     @JoinColumn(name = "injection_index")
     private Injection injection;
 
+    @Builder
+    public Shot(User user, Injection injection) {
+        this.user = user;
+        this.injection = injection;
+    }
+
+    public static Shot create(User user, Injection injection) {
+        return new Shot(user, injection);
+    }
 }
