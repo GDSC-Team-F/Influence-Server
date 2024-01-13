@@ -27,6 +27,7 @@ public class InjectionService {
     private final ShotRepository shotRepository;
     private final UserFindService userFindService;
 
+    @Transactional
     public Long vaccinated(Long userId, Long vaccineId) {
         User user = userFindService.findByMemId(userId);
         Injection injection = injectionRepository.findById(vaccineId).get();
