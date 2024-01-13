@@ -2,6 +2,7 @@ package gdsc.hack.influence.controller;
 
 import gdsc.hack.influence.common.BaseResponse;
 import gdsc.hack.influence.common.annotation.ExtractPayload;
+import gdsc.hack.influence.dto.InjectionRequest;
 import gdsc.hack.influence.dto.InjectionResponse;
 import gdsc.hack.influence.service.InjectionService;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +26,8 @@ public class InjectionController {
 
     @PostMapping
     public BaseResponse<Long> vaccinated(@ExtractPayload Long userId,
-                                         @RequestParam Long vaccineId) {
-        return new BaseResponse<>(injectionService.vaccinated(userId, vaccineId));
+                                         @RequestBody InjectionRequest vaccineId) {
+        return new BaseResponse<>(injectionService.vaccinated(userId, vaccineId.vaccineId()));
     }
 
 }

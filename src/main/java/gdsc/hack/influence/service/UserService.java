@@ -62,8 +62,10 @@ public class UserService {
     public MyPageResponse getInfo(Long userId) {
         User user = userFindService.findByMemId(userId);
         Long shotCnt = shotRepository.countByUser(user);
+        System.out.println(shotCnt);
         Long injectionCnt = injectionRepository.countBy();
-        float myPercent = (shotCnt / injectionCnt) * 100.0f;
+        System.out.println(injectionCnt);
+        float myPercent = ((float) shotCnt / injectionCnt) * 100.0f;
 
         return new MyPageResponse(
                 user.getUserIdx(),
