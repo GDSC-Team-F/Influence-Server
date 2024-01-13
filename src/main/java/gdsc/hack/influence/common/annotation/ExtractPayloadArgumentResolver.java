@@ -2,8 +2,8 @@ package gdsc.hack.influence.common.annotation;
 
 import gdsc.hack.influence.common.exception.BaseException;
 import gdsc.hack.influence.common.exception.GlobalErrorCode;
-import gdsc.hack.influence.jwt.util.AuthorizationExtractor;
-import gdsc.hack.influence.jwt.util.JwtTokenProvider;
+import gdsc.hack.influence.auth.jwt.util.AuthorizationExtractor;
+import gdsc.hack.influence.auth.jwt.util.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;

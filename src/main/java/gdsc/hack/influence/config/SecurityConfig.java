@@ -1,8 +1,8 @@
 package gdsc.hack.influence.config;
 
-import gdsc.hack.influence.security.handler.JwtAccessDeniedHandler;
-import gdsc.hack.influence.security.handler.JwtAuthenticationEntryPoint;
-import gdsc.hack.influence.security.util.JwtRequestFilter;
+import gdsc.hack.influence.auth.security.handler.JwtAccessDeniedHandler;
+import gdsc.hack.influence.auth.security.handler.JwtAuthenticationEntryPoint;
+import gdsc.hack.influence.auth.security.util.JwtRequestFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +31,9 @@ public class SecurityConfig {
     private final JwtRequestFilter jwtRequestFilter;
 
     private static final String[] PERMIT_URL = {
-            /* member auth service */
+            /* auth service */
+            "/api/register",
+            "/api/login",
 
             /* swagger */
             "/v3/api-docs/**",

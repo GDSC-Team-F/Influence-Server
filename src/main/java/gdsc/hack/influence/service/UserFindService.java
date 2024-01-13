@@ -20,7 +20,7 @@ public class UserFindService {
                 .orElseThrow(() -> BaseException.type(UserErrorCode.USER_NOT_FOUND));
     }
 
-    public User findByMemEmail(Email email) {
+    public User findByEmail(Email email) {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> BaseException.type(UserErrorCode.USER_NOT_FOUND));
     }
